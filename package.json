@@ -1,0 +1,11 @@
+{
+  "name": "omnes-cli",
+  "version": "0.0.1",
+  "description": "the all in one package manager",
+  "bin": {
+    "omnes": "omnes.js"
+  },
+  "main": "omnes.js",
+  "preferGlobal": true,
+  "license": "MIT"
+}
