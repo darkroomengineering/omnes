@@ -62,7 +62,7 @@ If no lockfile is found, Omnes will default to using npm.
 
 ## Authors
 
-This set of hooks is curated and maintained by the darkroom.engineering team:
+This open source package is maintained by the darkroom.engineering team:
 
 - Clément Roche ([@clementroche\_](https://twitter.com/clementroche_)) – [darkroom.engineering](https://darkroom.engineering)
 - Guido Fier ([@uido15](https://twitter.com/uido15)) – [darkroom.engineering](https://darkroom.engineering)
