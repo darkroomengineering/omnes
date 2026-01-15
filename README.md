@@ -24,7 +24,6 @@ Stop context-switching between `npm run`, `yarn`, `pnpm`, and `bun`. Omnes detec
 - [Commands](#commands)
 - [Monorepo Support](#monorepo-support)
 - [API](#api)
-- [Authors](#authors)
 - [License](#license)
 
 <br/>
@@ -271,17 +270,6 @@ omnes run my-script
 One command. Any project. Zero configuration.
 
 Omnes exists because developer tooling should reduce friction, not add it. Switching between projects shouldn't require mental overhead about which package manager to use.
-
-<br/>
-
-## Authors
-
-This open source project is maintained by the [darkroom.engineering](https://darkroom.engineering) team:
-
-- Clement Roche ([@clementroche\_](https://twitter.com/clementroche_)) – [darkroom.engineering](https://darkroom.engineering)
-- Guido Fier ([@uido15](https://twitter.com/uido15)) – [darkroom.engineering](https://darkroom.engineering)
-- Leandro Soengas ([@lsoengas](https://twitter.com/lsoengas)) – [darkroom.engineering](https://darkroom.engineering)
-- Franco Arza ([@arzafran](https://twitter.com/arzafran)) – [darkroom.engineering](https://darkroom.engineering)
 
 <br/>
 
