@@ -1,4 +1,4 @@
-[![OMNES](https://assets.darkroom.engineering/omnes/banner.svg)](https://github.com/darkroomengineering/omnes)
+![OMNES](https://raw.githubusercontent.com/darkroomengineering/omnes/main/omnes.png)
 
 [![npm](https://img.shields.io/npm/v/omnes-cli?colorA=E30613&colorB=000000)](https://www.npmjs.com/package/omnes-cli)
 [![downloads](https://img.shields.io/npm/dm/omnes-cli?colorA=E30613&colorB=000000)](https://www.npmjs.com/package/omnes-cli)

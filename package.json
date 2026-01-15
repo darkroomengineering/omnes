@@ -1,6 +1,6 @@
 {
   "name": "omnes-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Universal package manager CLI - automatically detects and uses the right package manager for your project",
   "type": "module",
   "bin": {
