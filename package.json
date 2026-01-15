@@ -1,11 +1,45 @@
 {
   "name": "omnes-cli",
-  "version": "0.0.1",
-  "description": "the all in one package manager",
+  "version": "0.1.0",
+  "description": "Universal package manager CLI - automatically detects and uses the right package manager for your project",
+  "type": "module",
   "bin": {
-    "omnes": "omnes.js"
+    "omnes": "dist/omnes.js"
   },
-  "main": "omnes.js",
-  "preferGlobal": true,
-  "license": "MIT"
+  "main": "dist/omnes.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkroomengineering/omnes.git"
+  },
+  "keywords": [
+    "cli",
+    "package-manager",
+    "npm",
+    "yarn",
+    "pnpm",
+    "bun",
+    "monorepo",
+    "universal"
+  ],
+  "author": "Darkroom Engineering <hello@darkroom.engineering> (https://darkroom.engineering)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darkroomengineering/omnes/issues"
+  },
+  "homepage": "https://github.com/darkroomengineering/omnes#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
 }
