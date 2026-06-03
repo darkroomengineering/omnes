@@ -11,8 +11,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "node --import tsx --test \"src/**/*.test.ts\"",
+    "lint": "biome check src",
+    "format": "biome check --write src",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -39,7 +43,9 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.16",
     "@types/node": "^22.0.0",
+    "tsx": "^4.22.4",
     "typescript": "^5.7.0"
   }
 }
