@@ -1,25 +1,24 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
-// Supported package managers
-export type PackageManager = "bun" | "pnpm" | "npm" | "yarn";
+// Supported package managers — single source of truth for the name list. The
+// PackageManager type is derived from it so the two cannot drift.
+export const PACKAGE_MANAGERS = ["bun", "pnpm", "npm", "yarn"] as const;
+export type PackageManager = (typeof PACKAGE_MANAGERS)[number];
 
-// Lockfile → package manager. Key order is the detection priority: the first
-// match within a directory wins. Mirrors the table in the README.
-export const LOCKFILES: Record<string, PackageManager> = {
-  "bun.lockb": "bun",
-  "bun.lock": "bun",
-  "pnpm-lock.yaml": "pnpm",
-  "yarn.lock": "yarn",
-  "package-lock.json": "npm",
-};
+function isPackageManager(value: string): value is PackageManager {
+  return (PACKAGE_MANAGERS as readonly string[]).includes(value);
+}
 
-const PACKAGE_MANAGERS: ReadonlySet<string> = new Set<PackageManager>([
-  "bun",
-  "pnpm",
-  "npm",
-  "yarn",
-]);
+// Lockfile → package manager, in detection-priority order: within a directory
+// the first match wins. Mirrors the table in the README.
+export const LOCKFILES: ReadonlyArray<readonly [string, PackageManager]> = [
+  ["bun.lockb", "bun"],
+  ["bun.lock", "bun"],
+  ["pnpm-lock.yaml", "pnpm"],
+  ["yarn.lock", "yarn"],
+  ["package-lock.json", "npm"],
+];
 
 // npm built-in commands that don't require a "run" prefix
 export const NPM_BUILTIN_COMMANDS = new Set([
@@ -128,8 +127,8 @@ export function parsePackageManagerField(
     return undefined;
   }
   const name = value.split("@", 1)[0]?.trim();
-  if (name !== undefined && PACKAGE_MANAGERS.has(name)) {
-    return name as PackageManager;
+  if (name !== undefined && isPackageManager(name)) {
+    return name;
   }
   return undefined;
 }
@@ -170,7 +169,7 @@ export function detectPackageManager(startDir: string): PackageManager {
       return hint;
     }
 
-    for (const [lockfile, pm] of Object.entries(LOCKFILES)) {
+    for (const [lockfile, pm] of LOCKFILES) {
       if (existsSync(join(currentDir, lockfile))) {
         return pm;
       }
