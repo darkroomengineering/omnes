@@ -110,7 +110,10 @@ omnes run dev
 
 ## Detection
 
-Omnes identifies the package manager by lockfile presence. Detection order matters — first match wins.
+Omnes walks up from the current directory to the filesystem root. In each directory it checks two signals, in order, and the **closest** directory with a match wins:
+
+1. **Corepack `packageManager` field** in `package.json` (e.g. `"packageManager": "pnpm@9.1.0"`). This is the most explicit signal, so it takes precedence over a lockfile in the same directory.
+2. **Lockfile presence.** When several lockfiles sit in one directory, the first by priority wins:
 
 | Priority | Lockfile | Package Manager |
 |----------|----------|-----------------|
@@ -120,7 +123,7 @@ Omnes identifies the package manager by lockfile presence. Detection order matte
 | 4 | `yarn.lock` | yarn |
 | 5 | `package-lock.json` | npm |
 
-No lockfile found? Falls back to npm.
+No signal found anywhere up the tree? Falls back to npm.
 
 <br/>
 
