@@ -18,12 +18,12 @@ Stop context-switching between `npm run`, `yarn`, `pnpm`, and `bun`. Omnes detec
 
 ## Features
 
-- One command set across npm, yarn, pnpm, and bun
-- Auto-detects your project's package manager, with zero config
-- Proxies straight through, so muscle memory and workflows stay intact
-- Monorepo and workspace aware
-- Covers install, run, add, exec, and dlx
-- Ships as a single global CLI
+- **One command, every manager** — the same verbs work across npm, yarn, pnpm, and bun
+- **Auto-detection** — reads your project's lockfile to pick the right manager, with zero config
+- **Transparent proxy** — passes commands straight through, so muscle memory and scripts stay intact
+- **Monorepo aware** — resolves the correct workspace in multi-package repos
+- **Full verb set** — covers install, run, add, exec, and dlx
+- **Single global CLI** — one tiny binary, installed once
 
 ## Table of Contents
 
